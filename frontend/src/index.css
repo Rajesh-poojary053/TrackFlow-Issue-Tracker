@@ -1,0 +1,84 @@
+
+/* =========================================
+   TRACKFLOW - GLOBAL STYLES
+========================================= */
+
+:root {
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #20243a;
+  background: #f5f6fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-weight: 400;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: #f5f6fb;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  text-align: left;
+  border: none;
+}
+
+::selection {
+  background: #ded9ff;
+  color: #29215f;
+}
+
+/* Consistent scrollbar */
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f6fb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d5d2e8;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa3d4;
+}
