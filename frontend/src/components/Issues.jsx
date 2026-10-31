@@ -20,7 +20,7 @@ import {
 import "./Dashboard.css";
 import "./Issues.css";
 
-const API = "http://localhost:5000/api";
+const API = "https://trackflow-issue-tracker.onrender.com/api";
 
 function Issues() {
   const navigate = useNavigate();

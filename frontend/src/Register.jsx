@@ -16,7 +16,7 @@ import {
 
 import axios from "axios";
 
-const API = "http://localhost:5000/api";
+const API = "https://trackflow-issue-tracker.onrender.com/api";
 
 function Register() {
   const [form, setForm] = useState({

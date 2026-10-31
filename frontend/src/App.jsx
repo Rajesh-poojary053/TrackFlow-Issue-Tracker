@@ -26,7 +26,7 @@ import Issues from "./components/Issues";
 
 import "./App.css";
 
-const API = "http://localhost:5000/api";
+const API = "https://trackflow-issue-tracker.onrender.com/api";
 
 function Login() {
   const [email, setEmail] = useState("");

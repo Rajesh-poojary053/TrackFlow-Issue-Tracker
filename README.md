@@ -253,7 +253,7 @@ npm install
 Set the frontend API base URL to your backend address. For local development, the current application code uses:
 
 ```text
-http://localhost:5000/api
+https://trackflow-issue-tracker.onrender.com/api
 ```
 
 For production, configure it to use your deployed backend URL. Do not leave the frontend pointing to localhost after deployment.
@@ -311,7 +311,7 @@ Only run the seed script when the administrator environment variables are config
 Base URL for local development:
 
 ```text
-http://localhost:5000/api
+https://trackflow-issue-tracker.onrender.com/api
 ```
 
 Protected endpoints require this request header:

@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import "./Dashboard.css";
 
-const API = "http://localhost:5000/api";
+const API = "https://trackflow-issue-tracker.onrender.com/api";
 
 function Dashboard() {
   const navigate = useNavigate();
