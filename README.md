@@ -174,7 +174,7 @@ TrackFlow/
 │   │   ├── index.css
 │   │   └── main.jsx
 │   ├── package.json
-│   └── .env                 # Create locally if using Vite env config
+│   └── .env                 # Optional, depending on configuration
 │
 ├── documentation/
 │   └── screenshots/
@@ -188,7 +188,7 @@ TrackFlow/
 └── README.md
 ```
 
-> If your local project contains additional files, keep them. This structure documents the main application files.
+If your local project contains additional files, keep them. This structure documents the main application files.
 
 ## Getting started
 
@@ -204,11 +204,9 @@ Install the following before running the project:
 ### 1. Clone the repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-cd TrackFlow
+git clone https://github.com/Rajesh-poojary053/TrackFlow-Issue-Tracker.git
+cd TrackFlow-Issue-Tracker
 ```
-
-Replace `YOUR_GITHUB_REPOSITORY_URL` with the HTTPS URL of your GitHub repository.
 
 ### 2. Install backend dependencies
 
@@ -250,13 +248,21 @@ npm install
 
 ### 6. Configure the frontend API URL
 
-Set the frontend API base URL to your backend address. For local development, the current application code uses:
+The frontend must send API requests to the backend.
+
+For local development, use:
+
+```text
+http://localhost:5000/api
+```
+
+The deployed application currently uses this production API base URL:
 
 ```text
 https://trackflow-issue-tracker.onrender.com/api
 ```
 
-For production, configure it to use your deployed backend URL. Do not leave the frontend pointing to localhost after deployment.
+The current frontend code contains the production API URL directly. For local development, update the API base URL in the relevant frontend files to `http://localhost:5000/api`. Restore the production URL before deploying the frontend.
 
 ### 7. Start the frontend
 
@@ -286,13 +292,13 @@ Create `backend/.env` locally. Do not upload this file to GitHub.
 | `ADMIN_EMAIL` | Administrator login email for seed script | `admin@example.com` |
 | `ADMIN_PASSWORD` | Administrator password for seed script | Use a strong private password |
 
-**Security notes**
+### Security notes
 
 - Never commit `.env` files, database passwords, JWT secrets or administrator passwords.
 - Add `.env` to `.gitignore`.
 - Use a separate strong `JWT_SECRET` in production.
 - Configure `CLIENT_URL` with the exact deployed frontend origin.
-- If credentials have been exposed, rotate them before deployment.
+- If credentials have been exposed, rotate them and update the corresponding deployment environment variables.
 
 ### Administrator account setup
 
@@ -308,7 +314,15 @@ Only run the seed script when the administrator environment variables are config
 
 ## API documentation
 
-Base URL for local development:
+### API base URLs
+
+**Local development:**
+
+```text
+http://localhost:5000/api
+```
+
+**Production:**
 
 ```text
 https://trackflow-issue-tracker.onrender.com/api
@@ -394,7 +408,7 @@ Authorization: Bearer <JWT_TOKEN>
 }
 ```
 
-> The endpoint list reflects the routes implemented in this project. For exact response fields and validation rules, refer to the corresponding route and controller files.
+The endpoint list reflects the routes implemented in this project. For exact response fields and validation rules, refer to the corresponding route and controller files.
 
 ## Roles and permissions
 
@@ -415,25 +429,25 @@ Permissions are enforced by the backend; hiding or disabling a frontend control 
 
 ## Deployment
 
-### Hosting plan
+TrackFlow has been successfully deployed and is accessible online.
 
-The intended deployment setup is:
+### Hosting platforms
 
 | Component | Hosting service | Purpose |
 |---|---|---|
 | Frontend | Vercel | Hosts the React/Vite application |
 | Backend | Render | Hosts the Node.js/Express API |
 | Database | MongoDB Atlas | Managed MongoDB database |
+| Source code | GitHub | Stores the project source code |
 
 ### Live application links
 
-Update these values after deployment:
+- **Frontend application:** https://track-flow-issue-tracker.vercel.app
+- **Backend API:** https://trackflow-issue-tracker.onrender.com
+- **Backend health check:** https://trackflow-issue-tracker.onrender.com/api/health
+- **GitHub repository:** https://github.com/Rajesh-poojary053/TrackFlow-Issue-Tracker
 
-- **Frontend:** `ADD_VERCEL_URL`
-- **Backend API:** `ADD_RENDER_BACKEND_URL`
-- **GitHub repository:** `ADD_GITHUB_REPOSITORY_URL`
-
-### Deploy the database
+### Database deployment – MongoDB Atlas
 
 1. Create a MongoDB Atlas cluster.
 2. Create a database user with a strong password.
@@ -441,7 +455,7 @@ Update these values after deployment:
 4. Copy the MongoDB connection string.
 5. Add it as `MONGO_URI` in the Render backend environment variables.
 
-### Deploy the backend on Render
+### Backend deployment – Render
 
 1. Push the project to GitHub.
 2. In Render, create a new **Web Service** and connect the repository.
@@ -452,9 +466,9 @@ Update these values after deployment:
 7. Deploy the service and verify the backend health endpoint at `/api/health`.
 8. Use the Render service URL as the frontend's production API base URL.
 
-### Deploy the frontend on Vercel
+### Frontend deployment – Vercel
 
-1. In Vercel, import the GitHub repository.
+1. Import the GitHub repository into Vercel.
 2. Set the **Root Directory** to `frontend`.
 3. Use the Vite build command `npm run build`.
 4. Set the output directory to `dist`.
@@ -470,8 +484,6 @@ Update these values after deployment:
 3. Vercel rebuilds the frontend when frontend files change.
 4. Render rebuilds the backend when backend files change.
 5. Check the deployment logs and test the live application after each deployment.
-
-**Important:** This README describes the deployment procedure. Replace the placeholder live URLs only after the services have actually been deployed and tested.
 
 ## Future improvements
 

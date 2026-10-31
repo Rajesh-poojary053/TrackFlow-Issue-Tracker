@@ -25,6 +25,7 @@ The application provides secure authentication, role-based access, issue managem
 ## 4. User Roles
 
 ### Administrator
+
 - Login using administrator credentials.
 - View all issues.
 - Create, edit and delete permitted issues.
@@ -34,6 +35,7 @@ The application provides secure authentication, role-based access, issue managem
 - Monitor dashboard statistics.
 
 ### Registered User
+
 - Register and log in securely.
 - Create issues.
 - View issues they created or are assigned.
@@ -68,7 +70,7 @@ The application provides secure authentication, role-based access, issue managem
 
 TrackFlow follows a client-server architecture.
 
-**Frontend:** React.js provides the user interface and communicates with the backend through HTTP requests using Axios.
+**Frontend:** React.js provides the user interface and communicates with the backend through HTTP requests.
 
 **Backend:** Node.js and Express.js handle authentication, authorization, issue management, comments and dashboard operations.
 
@@ -88,8 +90,6 @@ TrackFlow follows a client-server architecture.
 | ODM | Mongoose |
 | Authentication | JWT |
 | Password Security | bcryptjs |
-| HTTP Client | Axios |
-| Icons | Lucide React |
 | Version Control | Git and GitHub |
 
 ## 9. Database Overview
@@ -107,16 +107,16 @@ Stores comment text, associated issue, user and timestamp.
 
 ### Hosting Platforms
 
-The planned deployment architecture is:
+TrackFlow has been successfully deployed using the following platforms:
 
 - **Frontend:** Vercel
 - **Backend:** Render
 - **Database:** MongoDB Atlas
 - **Source Code:** GitHub
 
-### Deployment Approach
+### Deployment Architecture
 
-The frontend and backend are deployed separately. The React application communicates with the hosted Express API, while the backend connects to MongoDB Atlas.
+The frontend and backend are deployed separately. The React application communicates with the hosted Express API, while the backend connects to MongoDB Atlas to store and retrieve application data.
 
 ### Required Services
 
@@ -127,30 +127,41 @@ The frontend and backend are deployed separately. The React application communic
 
 ### Deployment Steps
 
-1. Upload the complete project to GitHub.
-2. Create a MongoDB Atlas database and configure network access.
+1. Upload the complete project source code to GitHub.
+2. Create a MongoDB Atlas database and configure database access.
 3. Deploy the backend folder as a Node.js web service on Render.
-4. Configure the backend environment variables, including `MONGO_URI`, `JWT_SECRET`, `CLIENT_URL` and `PORT`.
+4. Configure backend environment variables, including `MONGO_URI`, `JWT_SECRET` and `CLIENT_URL`.
 5. Deploy the frontend folder on Vercel.
 6. Configure the frontend API URL to point to the deployed Render backend.
-7. Update backend CORS configuration to allow the Vercel frontend domain.
+7. Configure backend CORS to allow requests from the Vercel frontend domain.
 8. Test registration, login, issue creation, assignment, status updates, comments and dashboard statistics.
-9. For future updates, push changes to GitHub and verify the corresponding deployment completes successfully.
+9. For future updates, push code changes to GitHub and verify that the deployment completes successfully.
 
 ### Deployment URLs
 
-**Frontend URL:** To be added after Vercel deployment.
+**Frontend Application:**  
+https://track-flow-issue-tracker.vercel.app
 
-**Backend API URL:** To be added after Render deployment.
+**Backend API:**  
+https://trackflow-issue-tracker.onrender.com
 
-**GitHub Repository:** To be added after repository creation.
+**GitHub Repository:**  
+https://github.com/Rajesh-poojary053/TrackFlow-Issue-Tracker
+
+### Deployment and Maintenance
+
+The application is hosted online and accessible through its public frontend URL. The backend runs as a web service on Render, and MongoDB Atlas provides cloud database storage.
+
+Future application updates can be managed through GitHub. Changes pushed to the connected repository can trigger new deployments on the respective hosting platforms.
+
+The Render free instance may temporarily spin down after inactivity, which can cause a delay when the backend receives its first request.
 
 ## 11. Expected Outcome
 
 TrackFlow provides a centralized issue management platform where administrators and users can collaborate, assign responsibilities, monitor progress and communicate through comments.
 
-The final deployed application will be accessible through a public web URL.
+The deployed application is accessible through a public web URL and supports the core issue management functionalities.
 
 ## 12. Conclusion
 
-TrackFlow aims to simplify issue tracking through a secure, organized and user-friendly web application. Its role-based functionality, dashboard and collaboration features help users manage their work effectively.
+TrackFlow simplifies issue tracking through a secure, organized and user-friendly web application. Its role-based functionality, dashboard and collaboration features help users manage their work effectively. The application has been deployed using Vercel, Render and MongoDB Atlas, making it accessible online.
